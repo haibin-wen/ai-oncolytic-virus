@@ -65,3 +65,25 @@ King et al. (2025, bioRxiv)，*Generative design of novel bacteriophages with ge
 - 实验筛选漏斗设计。
 
 这份文档只描述要做什么，求解路径暂不展开。
+
+---
+
+## 论文拆解
+
+把 HSV-1 OV 的设计视为大分子（基因组）设计问题，与晶体类大分子设计同构，自然落到 1 篇方法 + 1 篇应用。
+
+### 方法论文（一篇）
+
+**GFlowNet-style net for HSV-1 OV genome design**
+
+- edit-MDP：state = 当前基因组改造序列；action = 一次基因组编辑（payload 插入 / 启动子替换 / 非必需基因删除等）。
+- Reward：肿瘤选择性代理 + payload 表达约束 + 安全约束（神经毒性 / 复制控制）+ 多样性保持。
+- 与 Evo 类 genome language model 混合作为先验，处理 ~152 kb 长基因组。
+
+**接的研究线**：GFlowNet for biological sequences (Jain et al. ICML 2022)；Evo 1 (Nguyen, Poli, Durrant 2024) / Evo 2 (Brixi 2025)；HyenaDNA (Nguyen 2023) / Caduceus (Schiff 2024)；RFdiffusion 风格的约束条件生成；ProteinMPNN；T-VEC / ICP34.5 删除与启动子工程那条 OV 改造历史。
+
+### 应用 / 验证（一篇）
+
+由方法论文产生的 HSV-1 OV 候选，下选后做体外细胞系组 + 免疫健全鼠模型，作为应用论文（Nat Biotech / Cell 类候选）。
+
+**接的研究线**：Andtbacka et al. 2015 T-VEC trial；HSV 临床前模型（Friedman / Markert 系列）。
